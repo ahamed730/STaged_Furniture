@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearance Wishlist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- MultiStep Form -->
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Sign Up Your User Account</strong></h2>
+                <p>Fill all form field to go to next step</p>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form method="POST" id="msform">
+                            {% csrf_token %}
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li  id="personal"><strong>Personal Information</strong></li>
+                                <li class='active' id="confirm"><strong>Wishlist</strong></li>
+                            </ul> <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Wishlist Item</h2> <input type="number" name="sku" placeholder="Item sku" /> 
+                                    <select class="list-dt" id="year" name="category">
+                                        <option selected>Category</option>
+                                        <option>Living Room</option>
+                                        <option>Bedroom</option>
+                                        <option>Dining Room</option>
+                                        <option>Home Office</option>
+                                        <option>Bedding</option>
+                                        <option >Accents</option>
+                                    </select>
+                                    <select class="list-dt" id="year" name="color">
+                                        <option selected>Color</option>
+                                        <option>Black</option>
+                                        <option>Blue</option>
+                                        <option>Brown</option>
+                                        <option>Burgundy</option>
+                                        <option>White</option>
+                                        <option >Grey</option>
+                                        <option >Tan</option>
+                                        <option >Other</option>
+                                    </select>
+                                    <select class="list-dt" id="year" name="finish">
+                                        <option selected>Finish</option>
+                                        <option>Ebony</option>
+                                        <option>Mahogany</option>
+                                        <option>Cherry</option>
+                                        <option>Oak</option>
+                                        <option>Espresso</option>
+                                        <option >Other</option>
+                                    </select>
+                                    <select class="list-dt" id="year" name="upholstery">
+                                        <option selected>Upholstery</option>
+                                        <option>Fabric</option>
+                                        <option>Leather</option>
+                                    </select>
+                                </div> <input type="submit" class="next action-button" value="next" />
+                            </fieldset>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'app.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staged Inventory</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <script src="https://kit.fontawesome.com/aedf7eeccf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- MultiStep Form -->
+<div class="container-fluid" style='height: 100%;' id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h3><strong>Inventory</strong></h3>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form method="POST" id="msform">
+                            {% csrf_token %}
+                            <!-- progressbar -->
+                            <ul style='align-items: center; width: 100%;' id="progressbar">
+                            
+                                <li style='display: inline-block; float: none;' class='active' id="confirm"></li>
+                            </ul> <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Add An Item</h2> <input  type="number" name="sku" placeholder="Item SKU" /> 
+                                    <input  type="text" name="name" placeholder="Name" /> 
+                                    <select required class="list-dt" id="year" name="category">
+                                        <option value="" disabled selected >Category</option>
+                                        <option>Living Room</option>
+                                        <option>Bedroom</option>
+                                        <option>Dining Room</option>
+                                        <option>Home Office</option>
+                                        <option>Bedding</option>
+                                        <option >Accents</option>
+                                    </select>
+                                    <select required class="list-dt" id="year" name="category">
+                                        <option value="" disabled selected >Furniture</option>
+                                        {% for furniture in furniture %}
+                                        <option>{{furniture}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <select class="list-dt" id="year" name="color">
+                                        <option  value= '' disabled selected>Color</option>
+                                        <option>Black</option>
+                                        <option>Blue</option>
+                                        <option>Brown</option>
+                                        <option>Burgandy</option>
+                                        <option>White</option>
+                                        <option >Grey</option>
+                                        <option >Tan</option>
+                                        <option >Other</option>
+                                    </select>
+                                    <select class="list-dt" id="year" name="finish">
+                                        <option value='' disabled selected>Finish</option>
+                                        <option>Ebony</option>
+                                        <option>Mahogany</option>
+                                        <option>Cherry</option>
+                                        <option>Oak</option>
+                                        <option>Espresso</option>
+                                        <option >Other</option>
+                                    </select>
+                                    <select class="list-dt" id="year" name="upholstery">
+                                        <option value='' disabled selected>Upholstery</option>
+                                        <option>Fabric</option>
+                                        <option>Leather</option>
+                                    </select>
+                                </div> <input style="width: fit-content;" type="submit" class="next action-button" value="Add Another" /><input type="submit" name='complete'  class="next action-button" value="Submit" />
+                            </fieldset>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'app.js' %}"></script>
+</body>
+</html>

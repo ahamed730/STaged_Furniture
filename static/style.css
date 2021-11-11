@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%;
+}
+
+
+#grad1 {
+    background-color: #1c151d;
+    background-image: linear-gradient(10deg, #5e0666, #81D4FA)
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
+
+#msform fieldset .form-card {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+    position: relative
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform fieldset .form-card {
+    text-align: left;
+    color: #000000
+}
+
+
+body{
+
+    background-color: #000000;
+    height: 100%;
+    margin: 0%;
+}
+
+#msform input,
+#msform textarea {
+    padding: 0px 8px 4px 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 16px;
+    letter-spacing: 1px
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid skyblue;
+    outline-width: 0
+}
+
+#msform .action-button {
+    width: 100px;
+    background: skyblue;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+}
+
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px
+}
+
+select.list-dt:focus {
+    border-bottom: 2px solid skyblue
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    border-radius: 0.5rem;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #000000
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 25%;
+    float: left;
+    position: relative
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f023"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f09d"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f4b8"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+/* #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+} */
+
+#progressbar li.active:before {
+    background: skyblue
+}
+
+.radio-group {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.radio {
+    display: inline-block;
+    width: 204;
+    height: 104;
+    border-radius: 0;
+    background: lightblue;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 8px 2px
+}
+
+.radio:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+.radio.selected {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+  }
+
+
+  /* .table-responsive {
+    overflow-x: auto;
+    
+  }
+  
+  @media (max-width: 575.98px) {
+    .table-responsive-sm {
+      overflow-x: auto;
+     
+    }
+  }
+  @media (max-width: 767.98px) {
+    .table-responsive-md {
+      overflow-x: auto;
+      
+    }
+  }
+  @media (max-width: 991.98px) {
+    .table-responsive-lg {
+      overflow-x: auto;
+      
+    }
+  }
+  @media (max-width: 1199.98px) {
+    .table-responsive-xl {
+      overflow-x: auto;
+      
+    }
+  }
+  @media (max-width: 1599.98px) {
+    .table-responsive-xxl {
+      overflow-x: auto;
+      
+    }
+  } */
+
+  .table_page table thead tr:last-child th,
+.table_desc table tbody tr td:last-child {
+  border-right: 0;
+}
+
+.table-responsive table thead {
+  background: #f2f2f2;
+}
+
+.table_page table thead tr th {
+  color: #333;
+  border-bottom: 3px solid #ea1c26;
+  border-right: 1px solid #eee;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 10px;
+  text-align: center;
+}
+
+.table_page table tbody tr td {
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  text-align: center;
+  padding: 10px;
+}
+
+.table-responsive table tbody tr td {
+  border-right: 1px solid #eee;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 14px;
+  text-align: center;
+  min-width: 150px;
+}
+
+.table_page table tbody tr td.product_remove {
+  min-width: 100px;
+  font-size: 20px;
+}
+.table_page table tbody tr td.product_thumb {
+  max-width: 180px;
+  overflow: hidden;
+}
+.table_page table tbody tr td.product_thumb img {
+  width: 92px;
+  height: 92px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.table_page table tbody tr td.product_name {
+  min-width: 180px;
+}
+.table_page table tbody tr td.product-price {
+  min-width: 130px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+.table_page table tbody tr td.product_quantity {
+  min-width: 180px;
+}
+.table_page table tbody tr td.product_quantity label {
+  font-weight: 600;
+  margin-right: 5px;
+}
+.table_page table tbody tr td.product_quantity input {
+  width: 60px;
+  height: 40px;
+  padding: 0 5px 0 10px;
+  background: none;
+  border: 1px solid #eee;
+}
+.table_page table tbody tr td.product_addcart {
+  min-width: 180px;
+}
+.table_page table tbody tr td.product_addcart a {
+  background: #ea1c26;
+  font-size: 12px;
+  font-weight: 700;
+  height: 38px;
+  line-height: 18px;
+  padding: 10px 20px;
+  color: #FFF;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+.table_page table tbody tr td.product_addcart a:hover {
+  background: #333;
+}
+
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+.table > tbody {
+    vertical-align: inherit;
+  }
+  .table > thead {
+    vertical-align: bottom;
+  }
+  .table > :not(:last-child) > :last-child > * {
+    border-bottom-color: currentColor;
+
+  }
+
+  .table-striped > tbody > tr:nth-of-type(odd) {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--bs-table-striped-color);
+  }
+  
+  .table-active {
+    --bs-table-accent-bg: var(--bs-table-active-bg);
+    color: var(--bs-table-active-color);
+  }
+  
+  .table-hover > tbody > tr:hover {
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
+    color: var(--bs-table-hover-color);
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  .table-responsive {
+    position: relative;
+    z-index: 1;
+  }
+
+  .table_page table thead tr:last-child th,
+  .table_desc table tbody tr td:last-child {
+    border-right: 0;
+  }
+  
+  .table-responsive table thead {
+    background: #f2f2f2;
+  }
+  
+  .table_page table thead tr th {
+    color: rgb(0, 0, 0);
+    border-bottom: 3px solid #54027a;
+    border-right: 1px solid rgb(253, 0, 0);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .table_page table tbody tr td {
+    border-bottom: 1px solid #54027a;
+    border-right: 1px solid #54027a;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .table-responsive table tbody tr td {
+    border-right: 1px solid #54027a;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 14px;
+    text-align: center;
+    min-width: 150px;
+  }
+  
+  .table_page table tbody tr td.product_remove {
+    min-width: 100px;
+    font-size: 20px;
+  }
+  .table_page table tbody tr td.product_thumb {
+    max-width: 180px;
+    overflow: hidden;
+  }
+  .table_page table tbody tr td.product_thumb img {
+    width: 92px;
+    height: 92px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .table_page table tbody tr td.product_name {
+    min-width: 180px;
+  }
+  .table_page table tbody tr td.product-price {
+    min-width: 130px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .table_page table tbody tr td.product_quantity {
+    min-width: 180px;
+  }
+  .table_page table tbody tr td.product_quantity label {
+    font-weight: 600;
+    margin-right: 5px;
+  }
+  .table_page table tbody tr td.product_quantity input {
+    width: 60px;
+    height: 40px;
+    padding: 0 5px 0 10px;
+    background: none;
+    border: 1px solid #54027a;
+  }
+  .table_page table tbody tr td.product_addcart {
+    min-width: 180px;
+  }
+  .table_page table tbody tr td.product_addcart a {
+    background: #4f0458;
+    font-size: 12px;
+    font-weight: 700;
+    height: 38px;
+    line-height: 18px;
+    padding: 10px 20px;
+    color: #FFF;
+    text-transform: uppercase;
+    border-radius: 3px;
+  }
+  .table_page table tbody tr td.product_addcart a:hover {
+    background: #333;
+  }

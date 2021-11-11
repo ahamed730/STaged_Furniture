@@ -41,42 +41,6 @@ CONDITION_CHOICES = [('New','New'),
              ('Damaged','Damaged')]
 
 
-FURNITURE_CHOICES = [('Sofa & Loveseat', 'Sofa & Loveseat'),
-                     ('Sectionals', 'Sectionals'),
-                     ('Sofa', 'Sofa',),
-                     ('Loveseat','Loveseat'),
-                     ('Recliner', 'Recliner'),
-                     ('Chair', 'Chair' ),
-                     ('Coffee Table', 'Coffee Table'),
-                     ('End Table', 'End Table'),
-                     ('Ottoman', 'Ottoman'),
-                     ('TV Console', 'TV Console'),
-                     ('Fireplaces', 'Fireplaces'),
-                     ('Office Desks', 'Office Desks'),
-                     ('Office Chairs', 'Office Chairs'),
-                     ('Bookcases', 'Bookcases'),
-                     ('File Cabinets', 'File Cabinets'),
-                     ('Twin Bed', 'Twin Bed'),
-                     ('Queen Bed', 'Queen Bed'),
-                     ('King Bed', 'King Bed'),
-                     ('Dresser', 'Dresser'),
-                     ('Nightstand', 'Nightstand'),
-                     ('Chest', 'Chest'),
-                     ('Twin Mattress', 'Twin Mattress'),
-                     ('Full Mattress', 'Full Mattress'),
-                     ('Queen Mattress', 'Queen Mattress'),
-                     ('King Mattress', 'King Mattress'),
-                     ('Adjustable Base', 'Adjustable Base'),
-                     ('Box Spring', 'Box Spring'),
-                     ('Counter Height Set', 'Counter Height Set'),
-                     ('Dining Set', 'Dining Set'),
-                     ('Table', 'Table'),
-                     ('Dining Chairs', 'Dining Chairs'),
-                     ('Bar Height Stools', 'Bar height Stools'),
-                     ('Counter Height Stools', 'Counter Height Stools'),
-                     ('Island', 'Island'),
-                     ('China/Buffet', 'China/Buffet')]    
-
 LOCATION_CHOICES = [('Lodi','Lodi')]
 
 SOURCE_CHOICES=[('Raymour & Flanigan', 'Raymour & Flanigan'), ('Facebook', 'Facebook')]
@@ -114,8 +78,46 @@ class Customer(models.Model):
         return reverse('furniture_by_customer', args=[self.pk])
 
 class Furniture(models.Model):
+
+    FURNITURE_CHOICES = [('Sofa & Loveseat', 'Sofa & Loveseat'),
+                     ('Sectionals', 'Sectionals'),
+                     ('Sofa', 'Sofa',),
+                     ('Loveseat','Loveseat'),
+                     ('Recliner', 'Recliner'),
+                     ('Chair', 'Chair' ),
+                     ('Coffee Table', 'Coffee Table'),
+                     ('End Table', 'End Table'),
+                     ('Ottoman', 'Ottoman'),
+                     ('TV Console', 'TV Console'),
+                     ('Fireplaces', 'Fireplaces'),
+                     ('Office Desks', 'Office Desks'),
+                     ('Office Chairs', 'Office Chairs'),
+                     ('Bookcases', 'Bookcases'),
+                     ('File Cabinets', 'File Cabinets'),
+                     ('Twin Bed', 'Twin Bed'),
+                     ('Queen Bed', 'Queen Bed'),
+                     ('King Bed', 'King Bed'),
+                     ('Dresser', 'Dresser'),
+                     ('Nightstand', 'Nightstand'),
+                     ('Chest', 'Chest'),
+                     ('Twin Mattress', 'Twin Mattress'),
+                     ('Full Mattress', 'Full Mattress'),
+                     ('Queen Mattress', 'Queen Mattress'),
+                     ('King Mattress', 'King Mattress'),
+                     ('Adjustable Base', 'Adjustable Base'),
+                     ('Box Spring', 'Box Spring'),
+                     ('Counter Height Set', 'Counter Height Set'),
+                     ('Dining Set', 'Dining Set'),
+                     ('Table', 'Table'),
+                     ('Dining Chairs', 'Dining Chairs'),
+                     ('Bar Height Stools', 'Bar height Stools'),
+                     ('Counter Height Stools', 'Counter Height Stools'),
+                     ('Island', 'Island'),
+                     ('China/Buffet', 'China/Buffet')]    
+
+
     category  = models.ForeignKey(Category, on_delete=CASCADE, blank=True, null=True)
-    item = models.CharField(choices = FURNITURE_CHOICES, max_length=1000, null = True, blank = True)
+    item = models.CharField(FURNITURE_CHOICES, choices = FURNITURE_CHOICES, max_length=1000, null = True, blank = True)
     sku = models.CharField(max_length=100, null = True, blank=True, unique=True)
     name = models.CharField(max_length=100, null=True)
     condition = models.CharField(choices=CONDITION_CHOICES, max_length=100, blank=True)
@@ -127,7 +129,7 @@ class Furniture(models.Model):
     list_price = models.IntegerField(null=True, blank=True)
     quantity = models.IntegerField(default=1)
     source = models.CharField(blank=True, null=True, max_length=100, choices=SOURCE_CHOICES)
-    location = models.CharField(choices=LOCATION_CHOICES, max_length=100, null=True, default='Lodi')
+    location = models.CharField(LOCATION_CHOICES, choices=LOCATION_CHOICES, max_length=100, null=True, default='Lodi')
     unit_number = models.IntegerField(null=True, blank=True)
     picture = models.ImageField(null=True, blank=True)
     comments = models.TextField(max_length=2000, null = True, blank=True)
