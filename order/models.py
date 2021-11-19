@@ -5,47 +5,13 @@ from user.models import Account
 from django.urls import reverse
 
 
-CATEGORY_CHOICES = [('Living Room','Living Room'),
-('Bedroom', 'Bedroom'), ('Dining Room', 'Dining Room'),
-('Home Office','Home Office'), ('Bedding', 'Bedding'),
-('Accents', 'Accents')]
-
-COLOR_CHOICES = [
-    ('Black', 'Black'),
-    ('Blue', 'Blue'),
-    ('Brown', 'Brown'),
-    ('Burgandy', 'Burgandy'),
-    ('Grey', 'Grey'),
-    ('White', 'White'),
-    ('Tan', 'Tan'),
-    ('Other', 'Other')
-]
-
-FINISH_CHOICES = [('Ebony','Ebony'),
-('Mahogany', 'Mahogany'),
-('Cherry', 'Cherry'),
-('Oak', 'Oak'),
-('Espresso', 'Espresso'),
-('Other', 'Other')]
-
-UPHOLSTERY_CHOICES = [('Fabric', 'Fabric'),
-('Leather', 'Leather')]
-
-STATUS_CHOICES = [('Waiting','Waiting'),
-                  ('Pending','Pending'),
-                ('Complete', 'Complete')]
-            
-CONDITION_CHOICES = [('New','New'),
-             ('Used Like New', 'Used Like New'),
-             ('Good', 'Good'),
-             ('Damaged','Damaged')]
-
-
-LOCATION_CHOICES = [('Lodi','Lodi')]
-
-SOURCE_CHOICES=[('Raymour & Flanigan', 'Raymour & Flanigan'), ('Facebook', 'Facebook')]
-
 class Category(models.Model):
+    CATEGORY_CHOICES = [('Living Room','Living Room'),
+    ('Bedroom', 'Bedroom'), ('Dining Room', 'Dining Room'),
+    ('Home Office','Home Office'), ('Bedding', 'Bedding'),
+    ('Accents', 'Accents')]
+
+
     category_name = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
 
     def __str__(self) -> str:
@@ -78,6 +44,41 @@ class Customer(models.Model):
         return reverse('furniture_by_customer', args=[self.pk])
 
 class Furniture(models.Model):
+    COLOR_CHOICES = [
+    ('Black', 'Black'),
+    ('Blue', 'Blue'),
+    ('Brown', 'Brown'),
+    ('Burgandy', 'Burgandy'),
+    ('Grey', 'Grey'),
+    ('White', 'White'),
+    ('Tan', 'Tan'),
+    ('Other', 'Other')]
+
+    FINISH_CHOICES = [('Ebony','Ebony'),
+    ('Mahogany', 'Mahogany'),
+    ('Cherry', 'Cherry'),
+    ('Oak', 'Oak'),
+    ('Espresso', 'Espresso'),
+    ('Other', 'Other')]
+
+    UPHOLSTERY_CHOICES = [('Fabric', 'Fabric'),
+    ('Leather', 'Leather')]
+
+    STATUS_CHOICES = [('Waiting','Waiting'),
+                    ('Pending','Pending'),
+                    ('Complete', 'Complete')]
+                
+    CONDITION_CHOICES = [('New','New'),
+                ('Used', 'Used'),
+                ('Good', 'Good'),
+                ('Damaged','Damaged')]
+
+
+    LOCATION_CHOICES = [('Lodi','Lodi')]
+
+    UNIT_CHOICES=[('1085','1085'),('1086','1086'), ('1087','1087'),('1088','1088'), ('1039','1039'),('1038','1038')]
+
+    SOURCE_CHOICES=[('Raymour & Flanigan', 'Raymour & Flanigan'), ('Facebook', 'Facebook')]
 
     FURNITURE_CHOICES = [('Sofa & Loveseat', 'Sofa & Loveseat'),
                      ('Sectionals', 'Sectionals'),
@@ -117,7 +118,7 @@ class Furniture(models.Model):
 
 
     category  = models.ForeignKey(Category, on_delete=CASCADE, blank=True, null=True)
-    item = models.CharField(FURNITURE_CHOICES, choices = FURNITURE_CHOICES, max_length=1000, null = True, blank = True)
+    sub_category = models.CharField(choices = FURNITURE_CHOICES, max_length=1000, null = True, blank = True)
     sku = models.CharField(max_length=100, null = True, blank=True, unique=True)
     name = models.CharField(max_length=100, null=True)
     condition = models.CharField(choices=CONDITION_CHOICES, max_length=100, blank=True)
@@ -129,8 +130,9 @@ class Furniture(models.Model):
     list_price = models.IntegerField(null=True, blank=True)
     quantity = models.IntegerField(default=1)
     source = models.CharField(blank=True, null=True, max_length=100, choices=SOURCE_CHOICES)
-    location = models.CharField(LOCATION_CHOICES, choices=LOCATION_CHOICES, max_length=100, null=True, default='Lodi')
+    location = models.CharField(choices=LOCATION_CHOICES, max_length=100, null=True, default='Lodi')
     unit_number = models.IntegerField(null=True, blank=True)
+    listed = models.BooleanField(null=True, default=False, blank=True)
     picture = models.ImageField(null=True, blank=True)
     comments = models.TextField(max_length=2000, null = True, blank=True)
 

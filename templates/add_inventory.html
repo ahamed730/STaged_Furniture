@@ -31,48 +31,95 @@
                             </ul> <!-- fieldsets -->
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">Add An Item</h2> <input  type="number" name="sku" placeholder="Item SKU" /> 
-                                    <input  type="text" name="name" placeholder="Name" /> 
+                                    <h2 class="fs-title"  style="text-align: center;">Add An Item</h2> 
+                                    <div style="display: flex;">
+                                    <input style="margin-right:2% ;"  type="number" name="sku" placeholder="Item SKU" /> 
+                                    <input  type="text" name="name" placeholder="Item Name" /> 
+                                    </div>
+                                    <div style="display: flex;">
                                     <select required class="list-dt" id="year" name="category">
                                         <option value="" disabled selected >Category</option>
-                                        <option>Living Room</option>
-                                        <option>Bedroom</option>
-                                        <option>Dining Room</option>
-                                        <option>Home Office</option>
-                                        <option>Bedding</option>
-                                        <option >Accents</option>
+                                        {% for category in categories %}
+                                        <option>{{category}}</option>
+                                        {% endfor %}
                                     </select>
-                                    <select required class="list-dt" id="year" name="category">
-                                        <option value="" disabled selected >Furniture</option>
+                                    <select required class="list-dt" id="year" name="sub_category">
+                                        <option value="" disabled selected >Sub-Category</option>
                                         {% for furniture in furniture %}
                                         <option>{{furniture}}</option>
                                         {% endfor %}
                                     </select>
                                     <select class="list-dt" id="year" name="color">
                                         <option  value= '' disabled selected>Color</option>
-                                        <option>Black</option>
-                                        <option>Blue</option>
-                                        <option>Brown</option>
-                                        <option>Burgandy</option>
-                                        <option>White</option>
-                                        <option >Grey</option>
-                                        <option >Tan</option>
-                                        <option >Other</option>
+                                       {% for color in colors %}
+                                       <option>{{color}}</option>
+                                        {% endfor %}
                                     </select>
                                     <select class="list-dt" id="year" name="finish">
                                         <option value='' disabled selected>Finish</option>
-                                        <option>Ebony</option>
-                                        <option>Mahogany</option>
-                                        <option>Cherry</option>
-                                        <option>Oak</option>
-                                        <option>Espresso</option>
-                                        <option >Other</option>
+                                        {% for finish in finishes %}
+                                        <option>{{finish}}</option>
+                                         {% endfor %}
                                     </select>
                                     <select class="list-dt" id="year" name="upholstery">
                                         <option value='' disabled selected>Upholstery</option>
-                                        <option>Fabric</option>
-                                        <option>Leather</option>
+                                        {% for upholstery in upholstery %}
+                                        <option>{{upholstery}}</option>
+                                         {% endfor %}
                                     </select>
+                                    <select class="list-dt" id="year" name="condition">
+                                        <option value='' disabled selected>Condition</option>
+                                        {% for condition in condition %}
+                                        <option>{{condition}}</option>
+                                         {% endfor %}
+                                    </select>
+                                    </div>
+                                    <br>
+                                    <div style="display: flex;">
+                                        <select class="list-dt" id="year" name="quantity">
+                                            <option value='' disabled selected>Quantity</option>
+                                            {% for quantity in quantity %}
+                                            <option>{{quantity}}</option>
+                                             {% endfor %}
+                                        </select>
+                                        <select class="list-dt" id="year" name="pcs">
+                                            <option value='' disabled selected>Pcs</option>
+                                            {% for pcs in pcs %}
+                                            <option>{{pcs}}</option>
+                                             {% endfor %}
+                                        </select>
+                                        <select class="list-dt" id="year" name="source">
+                                            <option value='' disabled selected>Source</option>
+                                            {% for source in sources %}
+                                            <option>{{source}}</option>
+                                             {% endfor %}
+                                        </select>
+                                        <select class="list-dt" id="year" name="location">
+                                            <option value='' disabled selected>Location</option>
+                                            {% for location in locations %}
+                                            <option>{{location}}</option>
+                                             {% endfor %}
+                                        </select>
+                                        <select class="list-dt" id="year" name="unit">
+                                            <option value='' disabled selected>Unit #</option>
+                                            {% for unit in units %}
+                                            <option>{{unit}}</option>
+                                             {% endfor %}
+                                        </select>
+                                        <select class="list-dt" id="year" name="listed">
+                                            <option value='' disabled selected>Listed</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                             
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div style="display: flex;">
+                                    <input style="margin-right:2% ;width: 30%; align-self:baseline;"  type="number" name="cost" placeholder="Cost"/>
+                                    <input style="margin-right:2% ;width: 30%; align-self:baseline;"  type="number" name="list_price" placeholder="List Price"/>
+                                    <input type="file" name="picture" placeholder="thumbnail">
+                                    </div><br>
+                                    <textarea style="border: 1px solid black;" name="comments" cols="30" rows="10"></textarea>
                                 </div> <input style="width: fit-content;" type="submit" class="next action-button" value="Add Another" /><input type="submit" name='complete'  class="next action-button" value="Submit" />
                             </fieldset>
                             

@@ -30,9 +30,25 @@ def furnitureform(request):
             print(furniture_form.errors)
     else:
         furniture_form = FurnitureForm()
-        
+    categories = [category[0] for category in Category.CATEGORY_CHOICES]    
     furniture_types = [furniture[0] for furniture in Furniture.FURNITURE_CHOICES]
-    return render(request, 'add_inventory.html', {'form':furniture_form, 'furniture':furniture_types})
+    colors = [color[0] for color in Furniture.COLOR_CHOICES]
+    finishes = [finish[0] for finish in Furniture.FINISH_CHOICES]
+    upholstery = [upholstery[0] for upholstery in Furniture.UPHOLSTERY_CHOICES]
+    condition = [condition[0] for condition in Furniture.CONDITION_CHOICES]
+    quantity = [num for num in range(100)]
+    pcs = [num for num in range(100)]
+    sources = [source[0] for source in Furniture.SOURCE_CHOICES]
+    locations = [location[0] for location in Furniture.LOCATION_CHOICES]
+    units = [unit[0] for unit in Furniture.UNIT_CHOICES]
+
+    return render(request, 'add_inventory.html', {'form':furniture_form, 
+    'furniture':furniture_types, 'categories':categories, 
+    'colors':colors,'upholstery':upholstery, 
+    'condition':condition,'finishes':finishes,
+    'quantity':quantity, 'pcs':pcs,
+    'sources':sources, 'locations':locations,
+    'units':units})
 
 
 class ThankYouView(TemplateView):
