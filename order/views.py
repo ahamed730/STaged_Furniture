@@ -11,15 +11,11 @@ from django.urls import reverse_lazy
 # Create your views here.
 def furnitureform(request):
     if request.method == "POST":
+        category = Category.objects.get(category_name = request.POST.get('category'))
         furniture_form = FurnitureForm(data=request.POST)
-
-
         if furniture_form.is_valid():
-
-            furniture = furniture_form.save(commit=False) 
-            category_field = request.POST['category']
-            category = Category.objects.get(category_name=category_field)
-            furniture.category = category
+            furniture = furniture_form.save(commit=False)
+            furniture_form.instance.category = category
             furniture.save()
             if 'complete' in request.POST:
                 return redirect('thanks')

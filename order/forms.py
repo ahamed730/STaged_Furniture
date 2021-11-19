@@ -6,4 +6,4 @@ from .models import Customer, Address, Category, Furniture
 class FurnitureForm(forms.ModelForm):
     class Meta:
         model = Furniture
-        exclude = ['None',]
+        exclude = ['category']

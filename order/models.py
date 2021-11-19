@@ -11,7 +11,6 @@ class Category(models.Model):
     ('Home Office','Home Office'), ('Bedding', 'Bedding'),
     ('Accents', 'Accents')]
 
-
     category_name = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
 
     def __str__(self) -> str:
@@ -120,17 +119,17 @@ class Furniture(models.Model):
     category  = models.ForeignKey(Category, on_delete=CASCADE, blank=True, null=True)
     sub_category = models.CharField(choices = FURNITURE_CHOICES, max_length=1000, null = True, blank = True)
     sku = models.CharField(max_length=100, null = True, blank=True, unique=True)
-    name = models.CharField(max_length=100, null=True)
+    name = models.CharField(max_length=100, null=True, blank=True)
     condition = models.CharField(choices=CONDITION_CHOICES, max_length=100, blank=True)
     color = models.CharField(choices=COLOR_CHOICES, max_length=100, blank=True)
     finish = models.CharField(choices=FINISH_CHOICES, max_length=100, blank=True)
     upholstery= models.CharField(choices=UPHOLSTERY_CHOICES, max_length=100, blank=True)
-    pcs = models.IntegerField(default=1)
+    pcs = models.IntegerField(default=1, null=True, blank=True)
     cost = models.IntegerField(null=True,blank=True)
     list_price = models.IntegerField(null=True, blank=True)
-    quantity = models.IntegerField(default=1)
+    quantity = models.IntegerField(default=1, blank=True, null=True)
     source = models.CharField(blank=True, null=True, max_length=100, choices=SOURCE_CHOICES)
-    location = models.CharField(choices=LOCATION_CHOICES, max_length=100, null=True, default='Lodi')
+    location = models.CharField(choices=LOCATION_CHOICES, max_length=100, null=True, default='Lodi', blank=True)
     unit_number = models.IntegerField(null=True, blank=True)
     listed = models.BooleanField(null=True, default=False, blank=True)
     picture = models.ImageField(null=True, blank=True)
