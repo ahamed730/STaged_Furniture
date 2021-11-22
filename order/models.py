@@ -136,7 +136,7 @@ class Furniture(models.Model):
     comments = models.TextField(max_length=2000, null = True, blank=True)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.sku)+' '+'-'+ ' '+str(self.name)
     
     class Meta:
         verbose_name = 'Furniture'
@@ -144,7 +144,8 @@ class Furniture(models.Model):
     
 
 class Ticket(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=CASCADE)
+    ticket_id = models.CharField(max_length=200, blank=True)
+    customer = models.ForeignKey(Customer, on_delete=CASCADE, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     paid = models.BooleanField(default=False)
 
